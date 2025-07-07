@@ -202,12 +202,6 @@
           participating in 9+ hackathons and finding belief in myself.
         </p>
 
-        <!-- Dynamic Stats -->
-        <div class="stats">
-          <span><i class="fas fa-eye"></i> <span id="view-count">0</span> views</span>
-          <span><i class="fas fa-heart like-btn"></i> <span id="like-count">0</span> likes</span>
-        </div>
-
         <a href="hackathon-blog.html" target="_blank"><i class="fas fa-book-reader"></i> Read Full Story</a>
       </div>
     </section>
@@ -226,40 +220,7 @@
     </footer>
   </div>
 
-  <!-- JavaScript to make views and likes dynamic -->
-  <script>
-    const blogId = "hackathon-blog";
-
-    // Views logic
-    const viewKey = `${blogId}-views`;
-    let views = localStorage.getItem(viewKey);
-    if (!views) {
-      views = 1;
-    } else {
-      views = parseInt(views) + 1;
-    }
-    localStorage.setItem(viewKey, views);
-    document.getElementById("view-count").textContent = views;
-
-    // Likes logic
-    const likeKey = `${blogId}-likes`;
-    const likedKey = `${blogId}-liked`;
-    let likes = localStorage.getItem(likeKey) || 0;
-    let alreadyLiked = localStorage.getItem(likedKey) === "true";
-    document.getElementById("like-count").textContent = likes;
-
-    document.querySelector(".like-btn").addEventListener("click", () => {
-      if (!alreadyLiked) {
-        likes = parseInt(likes) + 1;
-        localStorage.setItem(likeKey, likes);
-        localStorage.setItem(likedKey, "true");
-        document.getElementById("like-count").textContent = likes;
-        alreadyLiked = true;
-      } else {
-        alert("You've already liked this post ❤️");
-      }
-    });
-  </script>
+  
 </body>
 
 </html>
