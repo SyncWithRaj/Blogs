@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>From Clueless to Confident</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raj's Blogs</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a2e0e6f452.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
     * {
       margin: 0;
@@ -15,113 +20,131 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #f3f5f9, #e6ebf5);
+      background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
       color: #2c3e50;
       padding: 60px 20px;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: start;
+      scroll-behavior: smooth;
     }
 
     .container {
-      max-width: 1000px;
-      background: #ffffffee;
-      backdrop-filter: blur(10px);
-      padding: 50px;
-      border-radius: 20px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-      animation: fadeInUp 0.8s ease-out;
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 30px;
+      background: #ffffffdd;
+      border-radius: 22px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      animation: fadeIn 1s ease-in-out;
+      transition: box-shadow 0.4s ease;
     }
 
-    h1 {
-      font-size: 2.6rem;
-      color: #0d47a1;
-      margin-bottom: 30px;
+    header {
       text-align: center;
+      margin-bottom: 50px;
     }
 
-    h1 i {
-      color: #1976d2;
-      margin-right: 10px;
+    header h1 {
+      font-size: 3rem;
+      color: #0d47a1;
+      text-shadow: 1px 1px 2px rgba(13, 71, 161, 0.2);
+      transition: transform 0.3s ease;
     }
 
-    h2 {
-      font-size: 1.5rem;
-      color: #1565c0;
+    header h1:hover {
+      transform: scale(1.03);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #546e7a;
+      margin-top: 12px;
+      opacity: 0.9;
+    }
+
+    .featured {
       margin-top: 40px;
-      padding-left: 28px;
-      position: relative;
     }
 
-    h2 i {
-      position: absolute;
-      left: 0;
-      top: 1px;
-      color: #2196f3;
+    .card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.07);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 1px solid #e0e0e0;
     }
 
-    p {
-      font-size: 1.06rem;
-      line-height: 1.8;
-      margin: 18px 0;
+    .card:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
-    blockquote {
-      background: #e3f2fd;
-      border-left: 5px solid #2196f3;
-      padding: 16px 20px;
-      margin: 30px 0;
-      font-style: italic;
+    .card h2 {
+      font-size: 1.8rem;
+      color: #1565c0;
+      margin-bottom: 12px;
+      transition: color 0.3s ease;
+    }
+
+    .card:hover h2 {
+      color: #0d47a1;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #37474f;
+      line-height: 1.7;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      color: #fff;
+      background: linear-gradient(135deg, #1976d2, #42a5f5);
+      text-decoration: none;
       border-radius: 10px;
-      color: #333;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
+      transition: all 0.3s ease;
     }
 
-    ul {
-      margin: 20px 0 20px 0;
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul li {
-      margin-bottom: 14px;
-      padding-left: 28px;
-      position: relative;
-      font-size: 1.06rem;
-    }
-
-    ul li::before {
-      content: "\f058";
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      color: #43a047;
-      position: absolute;
-      left: 0;
-      top: 2px;
-    }
-
-    .highlight {
-      color: #d32f2f;
-      font-weight: 600;
+    .card a:hover {
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      box-shadow: 0 6px 18px rgba(13, 71, 161, 0.5);
+      transform: translateY(-2px);
     }
 
     footer {
+      margin-top: 70px;
       text-align: center;
-      margin-top: 40px;
-      border-top: 1px solid #ddd;
-      padding-top: 25px;
-      color: #546e7a;
+      color: #607d8b;
+      font-size: 0.95rem;
+      padding-bottom: 20px;
     }
 
-    footer strong {
+    .socials {
+      margin-top: 10px;
+    }
+
+    .socials a {
       color: #1976d2;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    @keyframes fadeInUp {
+    .socials a:hover {
+      color: #0d47a1;
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
       from {
         opacity: 0;
         transform: translateY(50px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -133,85 +156,54 @@
       color: #fff;
     }
 
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
 
-    ::-webkit-scrollbar-thumb {
-      background: #90caf9;
-      border-radius: 10px;
+      .card {
+        padding: 25px;
+      }
+
+      .card h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <h1><i class="fas fa-rocket"></i>From Clueless to Confident: My 1st Year of Hackathons</h1>
+    <header>
+      <h1><i class="fas fa-feather-alt"></i> Raj's Personal Blog</h1>
+      <p>Sharing my journey through code, creativity & curiosity 🚀</p>
+    </header>
 
-    <p>When I stepped into college for the first time, I had the same questions most first-year students have:</p>
-    <ul>
-      <li>Where do I start?</li>
-      <li>What should I learn?</li>
-      <li>Am I good enough?</li>
-    </ul>
-
-    <p>I had dreams. I had ambition. But I didn’t know where to begin.</p>
-    <p>Then one day, I saw a poster for a hackathon. I had heard of them, but never thought I’d actually participate in one — not in my very first year.</p>
-    <p>Still, something inside me said: <strong>“Just go. Experience it. See what happens.”</strong></p>
-
-    <h2><i class="fas fa-bullseye"></i> My First Hackathon: No Code, Just Curiosity</h2>
-    <p>I walked into my first hackathon not as a developer, but as a complete beginner. I didn’t know the tech. I didn’t have a project idea.</p>
-    <p>Everyone around me was typing furiously, setting up frameworks, talking about APIs… and I was just sitting there — confused, overwhelmed, and feeling small.</p>
-    <p>So, I did what I could. I made a PowerPoint presentation of an idea I had. No code. No deployment. Just slides.</p>
-    <blockquote>But that moment? It was powerful. It was the first time I told myself: “I may not know everything, but I’m here to learn.”</blockquote>
-
-    <h2><i class="fas fa-sync-alt"></i> The Turning Point: One Became Nine</h2>
-    <p>That small step became a turning point. In the months that followed, I went on to participate in 8 to 9 hackathons — all in my 1st year of college.</p>
-
-    <ul>
-      <li>I got better at thinking creatively</li>
-      <li>I started understanding how tech actually works</li>
-      <li>I learned how to work in teams, manage time, and handle pressure</li>
-      <li>I stopped fearing bugs, and started loving challenges</li>
-    </ul>
-
-    <p>Sometimes we completed our ideas. Sometimes things broke at the last minute. And sometimes, we just sat there trying to fix a single bug for 5 hours 😅</p>
-    <p>But in every single hackathon, I grew.</p>
-
-    <h2><i class="fas fa-seedling"></i> What Hackathons Taught Me (Way Beyond Coding)</h2>
-    <ul>
-      <li><strong>🧠 Learning doesn’t happen in silence — it happens in chaos</strong></li>
-      <li><strong>💬 Communication is as important as code</strong></li>
-      <li><strong>💪 Imperfect is better than never started</strong></li>
-      <li><strong>🛠️ Technical skills grow with action</strong></li>
-      <li><strong>💖 Confidence is built by showing up, again and again</strong></li>
-    </ul>
-
-    <h2><i class="fas fa-user-graduate"></i> If You’re in Your 1st Year Too…</h2>
-    <p>You might feel like others know more than you. You might be scared to join because you think you're “not ready.”</p>
-    <blockquote>You’ll never be 100% ready. But if you show up with 1% courage, the rest will follow.</blockquote>
-    <p>Even if all you can do is make a PPT like I did — do it. Even if you don’t have a team or project — just go and observe. That one decision could be the start of something big.</p>
-
-    <h2><i class="fas fa-star"></i> One Year Later…</h2>
-    <p>I look back now, and I see a completely different version of myself.</p>
-    <ul>
-      <li>From someone who was afraid to open VS Code</li>
-      <li>To someone who now confidently takes on challenges</li>
-      <li>From just watching others build</li>
-      <li>To becoming the person who actually builds</li>
-      <li>From feeling “not enough”</li>
-      <li>To realizing I was always enough — I just had to start</li>
-    </ul>
-
-    <p class="highlight">My first year wasn’t about winning trophies. It was about winning belief in myself.</p>
-
-    <h2><i class="fas fa-flag-checkered"></i> This Is Just the Beginning</h2>
-    <p>Hackathons taught me to think under pressure, learn on the go, solve real problems, and most importantly… never doubt my potential again.</p>
-    <p>So here’s to the bugs, the crashes, the last-minute fixes, the all-nighters, the failures, and the little wins — they made me who I am today.</p>
+    <section class="featured">
+      <div class="card">
+        <h2>From Clueless to Confident: My 1st Year of Hackathons</h2>
+        <p>
+          How I transformed from a curious beginner with just a PPT to a confident hacker in just one year —
+          participating in 9+ hackathons and finding belief in myself.
+        </p>
+        <a href="hackathon-blog.html" target="_blank"><i class="fas fa-book-reader"></i> Read Full Story</a>
+      </div>
+    </section>
 
     <footer>
-      <p>And if my story inspires even one student to take that first step — this blog was worth writing.</p>
-      <p><strong>Because if I can do it, so can you.</strong></p>
+      <p>© 2025 Raj Ribadiya • Built with ❤️ by Raj</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/your_instagram" target="_blank" title="Instagram"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://x.com/your_username" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/your_linkedin" target="_blank" title="LinkedIn"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/your_github" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://yourwebsite.com" target="_blank" title="My Website"><i class="fas fa-globe"></i></a>
+      </div>
     </footer>
+
   </div>
 </body>
+
 </html>
