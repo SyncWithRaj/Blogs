@@ -115,6 +115,21 @@
       transform: translateY(-2px);
     }
 
+    .stats {
+      margin-top: 15px;
+      display: flex;
+      gap: 20px;
+      font-size: 0.95rem;
+      color: #546e7a;
+      align-items: center;
+    }
+
+    .stats i {
+      margin-right: 6px;
+      color: #e53935;
+      cursor: pointer;
+    }
+
     footer {
       margin-top: 70px;
       text-align: center;
@@ -186,6 +201,13 @@
           How I transformed from a curious beginner with just a PPT to a confident hacker in just one year —
           participating in 9+ hackathons and finding belief in myself.
         </p>
+
+        <!-- Dynamic Stats -->
+        <div class="stats">
+          <span><i class="fas fa-eye"></i> <span id="view-count">0</span> views</span>
+          <span><i class="fas fa-heart like-btn"></i> <span id="like-count">0</span> likes</span>
+        </div>
+
         <a href="hackathon-blog.html" target="_blank"><i class="fas fa-book-reader"></i> Read Full Story</a>
       </div>
     </section>
@@ -193,17 +215,51 @@
     <footer>
       <p>© 2025 Raj Ribadiya • Built with ❤️ by Raj</p>
       <div class="socials">
-        <a href="https://www.instagram.com/your_instagram" target="_blank" title="Instagram"><i
+        <a href="https://www.instagram.com/ribadiya_raj" target="_blank" title="Instagram"><i
             class="fab fa-instagram"></i></a>
-        <a href="https://x.com/your_username" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.linkedin.com/in/your_linkedin" target="_blank" title="LinkedIn"><i
+        <a href="https://x.com/ribadiya_rajj" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/raj-ribadiya" target="_blank" title="LinkedIn"><i
             class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/your_github" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://yourwebsite.com" target="_blank" title="My Website"><i class="fas fa-globe"></i></a>
+        <a href="https://github.com/SyncWithRaj" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://raj-ribadiya.vercel.app" target="_blank" title="My Website"><i class="fas fa-globe"></i></a>
       </div>
     </footer>
-
   </div>
+
+  <!-- JavaScript to make views and likes dynamic -->
+  <script>
+    const blogId = "hackathon-blog";
+
+    // Views logic
+    const viewKey = `${blogId}-views`;
+    let views = localStorage.getItem(viewKey);
+    if (!views) {
+      views = 1;
+    } else {
+      views = parseInt(views) + 1;
+    }
+    localStorage.setItem(viewKey, views);
+    document.getElementById("view-count").textContent = views;
+
+    // Likes logic
+    const likeKey = `${blogId}-likes`;
+    const likedKey = `${blogId}-liked`;
+    let likes = localStorage.getItem(likeKey) || 0;
+    let alreadyLiked = localStorage.getItem(likedKey) === "true";
+    document.getElementById("like-count").textContent = likes;
+
+    document.querySelector(".like-btn").addEventListener("click", () => {
+      if (!alreadyLiked) {
+        likes = parseInt(likes) + 1;
+        localStorage.setItem(likeKey, likes);
+        localStorage.setItem(likedKey, "true");
+        document.getElementById("like-count").textContent = likes;
+        alreadyLiked = true;
+      } else {
+        alert("You've already liked this post ❤️");
+      }
+    });
+  </script>
 </body>
 
 </html>
